@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace classes
 {
     public class Company
@@ -12,11 +13,8 @@ namespace classes
         public DateTime CreatedOn { get; set; }
 
         // Create a public property for holding a list of current employees
-        public List<string> EmployeesList { get; set; }
-        public EmployeesList(List<string> Employees)
-        {
-            employeesList = Employees;
-        }
+        public List<Employee> EmployeesList { get; set; }
+        
 
         /*
         Create a constructor method that accepts two arguments:
@@ -73,15 +71,20 @@ namespace classes
             };
 
             // Assign the employees to the company
-            List<string> Employees = new List<string>();
-            Employees.Add(jimmy);
-            Employees.Add(john);
-            Employees.Add(jimbo);
+            seeSharp.EmployeesList = new List<Employee>();
+            seeSharp.EmployeesList.Add(jimmy);
+            seeSharp.EmployeesList.Add(john);
+            seeSharp.EmployeesList.Add(jimbo);
 
             /*
                 Iterate the company's employee list and generate the
                 simple report shown above
             */
+            foreach ( Employee e in seeSharp.EmployeesList )
+            {
+                Console.WriteLine($"Name: {e.firstName} {e.lastName}");
+                Console.WriteLine($"Title: {e.title}");
+            }
         }
     }
 }
